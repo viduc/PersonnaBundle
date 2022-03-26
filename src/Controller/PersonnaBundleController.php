@@ -10,9 +10,12 @@ declare(strict_types=1);
 namespace Viduc\PersonnaBundle\src\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Viduc\Personna\src\Controller\Personna;
 
-class PersonnaController extends AbstractController
+class PersonnaBundleController extends AbstractController
 {
+    private Personna $personna;
+
     public function __construct()
     {
 
