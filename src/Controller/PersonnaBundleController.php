@@ -7,10 +7,10 @@ declare(strict_types=1);
 /** Licence: Apache 2.0                                                      **/
 /******************************************************************************/
 
-namespace Viduc\PersonnaBundle\src\Controller;
+namespace viduc\PersonnaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Viduc\Personna\src\Controller\Personna;
+use Viduc\Personna\Controller\Personna;
 
 class PersonnaBundleController extends AbstractController
 {
@@ -18,7 +18,7 @@ class PersonnaBundleController extends AbstractController
 
     public function __construct()
     {
-
+        //$this->personna = new Personna();
     }
 
     public function test(): string
