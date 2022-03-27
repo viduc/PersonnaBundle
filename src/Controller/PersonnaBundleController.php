@@ -7,10 +7,11 @@ declare(strict_types=1);
 /** Licence: Apache 2.0                                                      **/
 /******************************************************************************/
 
-namespace viduc\PersonnaBundle\Controller;
+namespace Viduc\PersonnaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Viduc\Personna\Controller\Personna;
+use Viduc\PersonnaBundle\Ports\PortPersonnaDao;
 
 class PersonnaBundleController extends AbstractController
 {
@@ -18,7 +19,7 @@ class PersonnaBundleController extends AbstractController
 
     public function __construct()
     {
-        //$this->personna = new Personna();
+        $this->personna = new Personna(new PortPersonnaDao());
     }
 
     public function test(): string
