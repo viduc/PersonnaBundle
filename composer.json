@@ -23,6 +23,9 @@
       "/tests/"
     ]
   },
+  "autoload-dev": {
+    "psr-4": { "Viduc\\PersonnaBundle\\Tests\\": "tests/" }
+  },
   "scripts": {
     "test": [
       "phpunit --coverage-clover clover.xml"
