@@ -22,5 +22,10 @@
     "exclude-from-classmap": [
       "/tests/"
     ]
+  },
+  "scripts": {
+    "test": [
+      "phpunit --coverage-clover clover.xml"
+    ]
   }
 }
