@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=8.0",
-    "viduc/personna": "*"
+    "viduc/personna": "dev-main"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0"
