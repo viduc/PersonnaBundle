@@ -6,6 +6,7 @@ declare(strict_types=1);
 /** github: https://github.com/viduc/personna-bundle                         **/
 /** Licence: Apache 2.0                                                      **/
 /******************************************************************************/
+namespace Viduc\PersonnaBundle\Tests\Requetes;
 
 use PHPUnit\Framework\TestCase;
 use Viduc\PersonnaBundle\Exceptions\PersonnaException;
