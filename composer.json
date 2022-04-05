@@ -13,6 +13,7 @@
   ],
   "require": {
     "php": ">=8.0",
+    "symfony/framework-bundle": "5.4.*",
     "viduc/personna": "dev-main"
   },
   "require-dev": {
