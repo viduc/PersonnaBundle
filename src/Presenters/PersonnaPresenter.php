@@ -16,6 +16,10 @@ class PersonnaPresenter implements PresenterInterface
 {
     private ReponseInterface $reponse;
 
+    /**
+     * @param ReponseInterface $reponse
+     * @return void
+     */
     final public function presente(ReponseInterface $reponse): void
     {
         $this->reponse = $reponse;
