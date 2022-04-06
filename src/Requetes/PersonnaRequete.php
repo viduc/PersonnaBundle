@@ -23,14 +23,8 @@ class PersonnaRequete implements RequeteInterface
      */
     public function __construct(string $action = null, array $param = null)
     {
-        $this->action = 'action';
-        if ($action !== null) {
-            $this->action = $action;
-        }
-        $this->param = [];
-        if ($param !== null) {
-            $this->param = $param;
-        }
+        $this->action = $action ?? 'action';
+        $this->param = $param ?? [];
     }
 
     /**
