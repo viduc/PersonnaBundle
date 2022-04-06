@@ -11,17 +11,58 @@ namespace Viduc\PersonnaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Viduc\Personna\Controller\Personna;
+use Viduc\PersonnaBundle\Presenters\PersonnaPresenter;
+use Viduc\PersonnaBundle\Requetes\PersonnaRequete;
 
 class PersonnaBundleController extends AbstractController
 {
+    /**
+     * @var Personna
+     */
     private Personna $personna;
 
-    public function __construct()
+    /**
+     * @var string
+     */
+    private string $path;
+
+    /**
+     * @param Personna|null $personna
+     * @param string|null $path
+     */
+    public function __construct(Personna $personna = null, string $path = null)
     {
+        $this->path = $path ?? str_replace(
+            ['/Controller', '/src', '/personna-bundle', '/librairies', '/vendor'],
+            '',
+            __DIR__
+        ) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'personnas';
+
+        $this->personna = $personna ?? new Personna($this->path);
     }
 
-    public function test(): string
+    /**
+     * @param Personna $personna
+     */
+    final public function setPersonna(Personna $personna): void
     {
-        return 'test';
+        $this->personna = $personna;
+    }
+
+    /**
+     * @param string $path
+     */
+    final public function setPath(string $path): void
+    {
+        $this->path = $path;
+    }
+
+    final public function recupererLesPersonnas(): array
+    {
+        $requete = new PersonnaRequete('getAll');
+        $presenter = new PersonnaPresenter();
+        return $this->personna->execute(
+            $requete, $presenter
+        )->getReponse()->getPersonnas();
     }
 }
