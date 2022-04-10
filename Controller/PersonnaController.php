@@ -9,12 +9,13 @@ declare(strict_types=1);
 
 namespace Viduc\PersonnaBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Viduc\Personna\Controller\Personna;
 use Viduc\PersonnaBundle\Presenters\PersonnaPresenter;
 use Viduc\PersonnaBundle\Requetes\PersonnaRequete;
 
-class PersonnaBundleController extends AbstractController
+class PersonnaController extends AbstractController
 {
     /**
      * @var Personna
@@ -57,6 +58,13 @@ class PersonnaBundleController extends AbstractController
         $this->path = $path;
     }
 
+    final public function index(): Response
+    {
+        return $this->render('@Personna/personnas.html.twig', [
+
+        ]);
+    }
+
     final public function recupererLesPersonnas(): array
     {
         $requete = new PersonnaRequete('getAll');
@@ -64,5 +72,10 @@ class PersonnaBundleController extends AbstractController
         return $this->personna->execute(
             $requete, $presenter
         )->getReponse()->getPersonnas();
+    }
+
+    final public function getPath(): string
+    {
+        return \dirname(__DIR__);
     }
 }

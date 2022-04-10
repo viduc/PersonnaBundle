@@ -13,11 +13,11 @@ use Viduc\Personna\Controller\Personna;
 use Viduc\Personna\Interfaces\Presenters\PresenterInterface;
 use Viduc\Personna\Reponses\Reponse;
 use Viduc\Personna\Reponses\ReponsePersonna;
-use Viduc\PersonnaBundle\Controller\PersonnaBundleController;
+use Viduc\PersonnaBundle\Controller\PersonnaController;
 
 class PersonnaBundleControllerTest extends TestCase
 {
-    private PersonnaBundleController $controller;
+    private PersonnaController $controller;
     private Personna $personna;
     private PresenterInterface $presenter;
 
@@ -27,7 +27,7 @@ class PersonnaBundleControllerTest extends TestCase
         $this->presenter = $this->createMock(PresenterInterface::class);
         $this->personna = $this->createMock(Personna::class);
         $this->personna->method('execute')->willReturn($this->presenter);
-        $this->controller = new PersonnaBundleController($this->personna);
+        $this->controller = new PersonnaController($this->personna);
     }
 
     /**

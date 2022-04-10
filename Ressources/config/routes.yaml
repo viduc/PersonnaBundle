@@ -1,0 +1,3 @@
+toto:
+    path: /toto
+    controller: Viduc\PersonnaBundle\Controller\PersonnaController::index

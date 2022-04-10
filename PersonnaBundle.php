@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Viduc\PersonnaBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Viduc\PersonnaBundle\Controller\PersonnaBundleController;
 
 class PersonnaBundle extends Bundle
 {
