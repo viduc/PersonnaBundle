@@ -12,6 +12,8 @@ namespace Viduc\PersonnaBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Viduc\Personna\Controller\Personna;
+use Viduc\Personna\Model\PersonnaModel;
+use Viduc\PersonnaBundle\Model\PersonnaCardModel;
 use Viduc\PersonnaBundle\Presenters\PersonnaPresenter;
 use Viduc\PersonnaBundle\Requetes\PersonnaRequete;
 
@@ -60,8 +62,20 @@ class PersonnaController extends AbstractController
 
     final public function index(): Response
     {
+        $personna = new PersonnaModel();
+        $personna->setNom('TestNom1');
+        $personna->setPrenom('TestPrenom1');
+        $personna->setUrlPhoto('https://www.anne-et-paper.fr/app/uploads/2020/09/aurelien-cunin-300x277.png');
+        $personna->setMetier('metier1');
+        $autre = new PersonnaModel();
+        $autre->setNom('TestNom12');
+        $autre->setPrenom('TestPrenom2');
+        $autre->setUrlPhoto('https://www.kreezalid.com/uploads/blog/author/2/afe15b3a510740cc3bb7ddcf0b04bbfc.jpg');
+        $autre->setMetier('metier2');
+        $personnas[] = new PersonnaCardModel($personna);
+        $personnas[] = new PersonnaCardModel($autre);
         return $this->render('@Personna/personnas.html.twig', [
-
+            'personnas' => $personnas
         ]);
     }
 
