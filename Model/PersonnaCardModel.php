@@ -18,6 +18,9 @@ class PersonnaCardModel
     public string $urlPhoto;
     public string $metier;
 
+    /**
+     * @param PersonnaModel $personna
+     */
     final public function __construct(PersonnaModel $personna)
     {
         $this->prenom = $personna->getPrenom();
